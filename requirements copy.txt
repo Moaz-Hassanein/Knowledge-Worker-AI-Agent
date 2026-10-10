@@ -1,0 +1,14 @@
+langchain
+langchain-ollama
+langgraph
+langchain-core
+openpyxl
+python-docx
+pydantic
+pydantic-settings
+matplotlib
+memory_profiler
+langfuse
+pathlib
+pydantic-ai 
+gradio
