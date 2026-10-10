@@ -1,0 +1,17 @@
+# Core Orchestration
+langgraph>=0.2.0
+langchain>=1.2.21
+langchain-core>=1.2.21
+
+# Tools & Utilities
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+pydantic-settings>=2.8.1
+loguru>=0.7.0
+python-docx==1.2.0
+
+# Model Providers
+langchain-ollama>=1.1.0
+langchain-google-genai>=4.3.5
+
+screenenv>=0.1.2
