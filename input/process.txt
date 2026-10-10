@@ -1,0 +1,25 @@
+1. Invoice vs Purchase Order Review
+For every vendor invoice received, compare it against the original
+purchase order. Verify that the quantities delivered match the quantities
+ordered, unit prices match the agreed contract price, the calculated
+subtotal is correct, the sales tax applied matches the required rate for
+the delivery region, and the final total matches the invoice grand total.
+Any invoice with a discrepancy must be flagged and routed to the accounts
+payable manager for manual approval before payment is released.
+
+2. Inventory Reconciliation Review
+At the end of each month, reconcile the warehouse inventory. Take the
+previous month's ending inventory count, subtract all recorded sales and
+dispatches for the current month, and add any recorded incoming
+shipments. Compare this calculated figure to the physical inventory count
+performed by warehouse staff. Any mismatch above the acceptable threshold
+must be investigated and a discrepancy report generated identifying the
+likely cause.
+
+3. Employee Expense Report Review
+Review each submitted employee expense report against the attached
+receipts. Confirm that every claimed expense has a matching receipt, that
+the expense category is appropriate for the employee's role, and that no
+single expense exceeds the per-category spending limit. Reports with any
+expense lacking a receipt or exceeding policy limits must be sent back to
+the employee's manager for review before reimbursement is processed.

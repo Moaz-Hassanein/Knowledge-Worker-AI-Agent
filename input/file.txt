@@ -1,0 +1,40 @@
+Previous Month Ending
+Product	Quantity
+Laptop	100
+Mouse	200
+Keyboard	150
+Monitor	80
+Total	530
+ 
+Dispatches
+Product	Dispatches
+Laptop	0
+Mouse	0
+Keyboard	0
+Monitor	0
+Total	0
+ 
+Sales
+Product	Quantity
+Laptop	20
+Mouse	50
+Keyboard	30
+Monitor	10
+Total	110
+ 
+Incoming Shipments
+Product	Quantity
+Laptop	10
+Mouse	20
+Keyboard	15
+Monitor	5
+Total	50
+ 
+Physical Inventory
+Product	Physical Count
+Laptop	89
+Mouse	168
+Keyboard	136
+Monitor	74
+Total	467
+

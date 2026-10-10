@@ -1,0 +1,12 @@
+Policy 1: Approval and Escalation Thresholds
+A quantity or inventory variance of up to 2% is acceptable without
+escalation. Variances between 2% and 5% require supervisor sign-off.
+Anything above 5%, or any unit price difference greater than $0.01, must
+be escalated to the relevant department director.
+
+Policy 2: Documentation and Spending Limits
+Every reviewed transaction must reference its supporting document
+(purchase order, receipt, or shipment record) or it is rejected outright.
+Meals are capped at $60/day domestic and $90/day international, lodging
+at $250/night, and any single expense over $500 requires a scanned
+receipt regardless of category.
