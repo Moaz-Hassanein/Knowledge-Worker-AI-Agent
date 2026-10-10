@@ -1,0 +1,61 @@
+services:
+  server:
+    container_name: knowledge_worker_v1-server
+
+    image: knowledge_worker_v1:latest
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+    stdin_open: true
+    tty: true
+    environment:
+      OLLAMA_BASE_URL: "http://host.docker.internal:11434"
+
+      APP_NAME: "Knowledge_Workers_Agent"
+      ENVIRONMENT: "local"
+      LOG_LEVEL: "INFO"
+
+      GENERATION_PROVIDER: "OLLAMA"
+      GENERATION_MODEL_NAME: "gemma4:31b-cloud"
+      GENERATION_DEFAULT_MAX_TOKENS: "20000"
+      GENERATION_DEFAULT_TEMPERATURE: "0.2"
+      GENERATION_NUM_CTX: "8192"
+
+      LANGFUSE_PUBLIC_KEY: "${LANGFUSE_PUBLIC_KEY}"
+      LANGFUSE_SECRET_KEY: "${LANGFUSE_SECRET_KEY}"
+      LANGFUSE_BASE_URL: "${LANGFUSE_BASE_URL:-https://cloud.langfuse.com}"
+
+      MPLCONFIGDIR: "/app/.matplotlib"
+
+    volumes:
+      - .:/app
+      - ./output:/app/output
+      - ./logs:/app/logs
+      - ./.matplotlib:/app/.matplotlib
+
+    command:
+      - "--requirement"
+      - "Determine whether this bill is real or fake"
+
+      - "--required-data"
+      - "invoice_number"
+      - "po_number"
+      - "invoice_date"
+      - "tax_registration_number"
+      - "tax_file_number"
+      - "commercial_registration_number"
+      - "bill_to_name"
+      - "vendor_name"
+      - "subtotal"
+      - "tax"
+      - "total"
+
+      - "--process"
+      - "input/bill_review_process.txt"
+
+      - "--policy"
+      - "input/bill_review_policy.docx"
+
+      - "--target"
+      - "input/Book.xlsx"
