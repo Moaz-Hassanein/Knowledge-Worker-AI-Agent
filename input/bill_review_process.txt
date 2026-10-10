@@ -1,0 +1,29 @@
+1. Locate the Bill's Key Fields
+Each target file is a single invoice document. Find the invoice details
+block, which sits alongside the "Bill To" section and contains, in
+order: Invoice #, PO #, Invoice Date, Tax Registration #, Tax File #,
+and Commercial Registration #.
+
+2. Check Tax Registration # and Commercial Registration #
+Determine whether the Tax Registration # field has an actual value
+filled in, and separately whether the Commercial Registration # field
+has an actual value filled in. A field counts as missing if it is
+blank, empty, or not present on the document at all -- whether or not
+its label is shown.
+
+3. Classify the Bill
+If both the Tax Registration # and the Commercial Registration # have
+values, classify the bill as REAL. If either one is missing, classify
+the bill as FAKE.
+
+4. Task for human auditor: review bills
+Any bill classified as FAKE must be routed to a human auditor. The
+human auditor reviews the bill directly -- including the vendor and
+client details, the item table, and which of the two fields was missing
+-- and makes the final determination of whether the bill is genuine or
+fake.
+
+5. Audit Report Generation
+Generate a final audit report stating the bill's classification (REAL
+or FAKE), whether that classification was made automatically or by a
+human auditor, and the reasoning behind it.

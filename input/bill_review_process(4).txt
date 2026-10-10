@@ -1,0 +1,37 @@
+1. Locate the Bill's Key Fields
+Each target file is a single invoice document. Find the invoice details
+block, which sits alongside the "Bill To" section and contains, in
+order: Invoice #, PO #, Invoice Date, Tax Registration #, Tax File #,
+and Commercial Registration #. Also locate the item table (Item Name,
+Description, Price, Quantity, Total) and the totals section (Subtotal,
+Tax, Total).
+
+2. Check Tax Registration # and Commercial Registration #
+Determine whether the Tax Registration # field has an actual value
+filled in, and separately whether the Commercial Registration # field
+has an actual value filled in. A field counts as missing if it is
+blank, empty, or not present on the document at all -- whether or not
+its label is shown.
+
+3. Verify the Item Totals and Overall Amounts
+For each row in the item table, confirm Price multiplied by Quantity
+equals that row's stated Total. Confirm the sum of every row's Total
+equals the Subtotal. The "Tax" value in the totals section is a RATE,
+not a currency amount (for example, 0.14 means a 14% rate, not $0.14).
+Calculate the actual tax amount as Subtotal multiplied by this rate,
+then confirm Subtotal plus the calculated tax amount equals the final
+Total. Do not add the rate itself to the Subtotal.
+
+4. Classify the Bill -- Automatically
+If either registration field is missing, OR any of the arithmetic in
+step 3 does not reconcile, reject the bill outright and classify it as
+invalid. There is no path to approval for either failure -- the
+decision is final the moment either check fails.
+
+If both registration fields are present AND every arithmetic check
+reconciles exactly, classify the bill as valid.
+
+5. Audit Report Generation
+Generate a final audit report stating the bill's classification (valid
+or invalid) and the reasoning behind it, including which specific
+check, if any, caused it to be rejected.

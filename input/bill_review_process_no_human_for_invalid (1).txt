@@ -1,0 +1,49 @@
+1. Locate the Bill's Key Fields
+Each target file is a single invoice document. Find the invoice details
+block, which sits alongside the "Bill To" section and contains, in
+order: Invoice #, PO #, Invoice Date, Tax Registration #, Tax File #,
+and Commercial Registration #. Also locate the itemized table (Item
+Name, Description, Price, Quantity, Total per line) and the totals
+section (Subtotal, Tax, Total).
+
+2. Check Tax Registration # and Commercial Registration #
+Determine whether the Tax Registration # field has an actual value
+filled in, and separately whether the Commercial Registration # field
+has an actual value filled in. A field counts as missing if it is
+blank, empty, or not present on the document at all -- whether or not
+its label is shown.
+
+3. Classify the Bill
+If both the Tax Registration # and the Commercial Registration # have
+values, classify the bill as VALID. If either one is missing, classify
+the bill as INVALID. This classification is recorded automatically --
+no human review is triggered by it, whether the result is VALID or
+INVALID.
+
+4. Verify the Bill's Totals and Amounts
+Independently of the VALID/INVALID classification, check the bill's
+arithmetic:
+   a. For each line item, confirm Price x Quantity equals that line's
+      Total.
+   b. Confirm the sum of every line item's Total equals the Subtotal.
+   c. Confirm Subtotal + Tax equals the final Total.
+If every one of these checks matches, the bill's amounts are considered
+CONSISTENT and recorded automatically. If any one of them does not
+match, the bill's amounts are considered INCONSISTENT and the bill must
+be flagged for human review as a financial discrepancy, regardless of
+what its VALID/INVALID classification was.
+
+5. Task for human auditor: review bills
+Only bills flagged as having INCONSISTENT amounts are routed to a human
+auditor. A bill's VALID/INVALID classification alone never triggers
+human review. When a bill is routed to a human auditor, they review the
+bill directly -- including the vendor and client details, the item
+table, and which arithmetic check failed -- and make the final
+determination of whether the amount discrepancy is acceptable or must
+be corrected.
+
+6. Audit Report Generation
+Generate a final audit report stating the bill's classification (VALID
+or INVALID) -- always determined automatically -- and whether its
+amounts were CONSISTENT (determined automatically) or INCONSISTENT
+(determined by a human auditor), along with the reasoning behind each.
